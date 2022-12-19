@@ -1,18 +1,16 @@
- import { Request, Response } from "express"
+import { Request, Response } from "express";
 import { CreateCategoryUseCase } from "./CreateCategoryUseCase";
 // o controller tem a responsabilidade de estar com oq estava antes dentro da rota
- class CreateCategoryController {
+class CreateCategoryController {
+  constructor(private createCategoryUseCase: CreateCategoryUseCase) {}
 
-  constructor(private createCategoryUseCase: CreateCategoryUseCase){}
+  handle(request: Request, response: Response): Response {
+    const { name, description } = request.body;
 
-  handle(request: Request, response: Response):Response {
-   const { name, description } = request.body;
+    this.createCategoryUseCase.execute({ name, description });
 
- 
-   this.createCategoryUseCase.execute({name, description})
- 
-   return response.status(201).send();
+    return response.status(201).send();
   }
- }
+}
 
- export { CreateCategoryController }
+export { CreateCategoryController };
