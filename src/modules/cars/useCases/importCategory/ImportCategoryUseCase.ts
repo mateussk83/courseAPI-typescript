@@ -35,6 +35,8 @@ class ImportCategoryUseCase {
         })
         // aqui diz quando terminar o parse do arquivo vai fazer isso aqui corretamente
         .on("end", () => {
+          // ele limpa o arquivo pra nao gerar nada
+          fs.promises.unlink(file.path)
           resolve(categories);
         })
         .on("error", (err) => {
