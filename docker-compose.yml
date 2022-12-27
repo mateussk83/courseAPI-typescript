@@ -1,0 +1,14 @@
+version: "3.7"
+
+services: 
+  app:  
+    # oq queremos buildar
+    build:  .
+    # nome do container
+    container_name: carsapi
+    # porta
+    ports: 
+      - 3333:3333
+    # mesma coisa do workdir
+    volumes:  
+      - .:/usr/app
