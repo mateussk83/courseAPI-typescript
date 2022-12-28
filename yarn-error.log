@@ -1,8 +1,8 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\mateu\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add wagger-ui-express
+  C:\Program Files\nodejs\node.exe C:\Users\mateu\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js
 
 PATH: 
-  C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Users\mateu\AppData\Local\Programs\Python\Python38\Scripts\;C:\Users\mateu\AppData\Local\Programs\Python\Python38\;C:\Users\mateu\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\mateu\AppData\Local\Programs\Python\Python39\;C:\Users\mateu\AppData\Local\Microsoft\WindowsApps;C:\Users\mateu\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\mateu\AppData\Roaming\npm;
+  C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\Users\mateu\AppData\Local\Programs\Python\Python38\Scripts\;C:\Users\mateu\AppData\Local\Programs\Python\Python38\;C:\Users\mateu\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\mateu\AppData\Local\Programs\Python\Python39\;C:\Users\mateu\AppData\Local\Microsoft\WindowsApps;C:\Users\mateu\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\mateu\AppData\Roaming\npm;
 
 Yarn version: 
   1.22.19
@@ -14,17 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/wagger-ui-express: Not found
-      at Request.params.callback [as _callback] (C:\Users\mateu\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:66145:18)
-      at Request.self.callback (C:\Users\mateu\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:140890:22)
-      at Request.emit (node:events:513:28)
-      at Request.<anonymous> (C:\Users\mateu\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141862:10)
-      at Request.emit (node:events:513:28)
-      at IncomingMessage.<anonymous> (C:\Users\mateu\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141784:12)
-      at Object.onceWrapper (node:events:627:28)
-      at IncomingMessage.emit (node:events:525:35)
-      at endReadableNT (node:internal/streams/readable:1358:12)
-      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+  Error: EPERM: operation not permitted, unlink 'C:\Users\mateu\OneDrive\Área de Trabalho\Projetos\Web\Back-End\Exercises-Node\carsAPI-typescript\node_modules\.bin\ts-node-dev'
 
 npm manifest: 
   {
@@ -37,10 +27,12 @@ npm manifest:
     },
     "dependencies": {
       "@types/multer": "^1.4.7",
+      "@types/swagger-ui-express": "^4.1.3",
       "@types/uuid": "^9.0.0",
       "csv-parse": "^5.3.3",
       "express": "^4.18.2",
       "multer": "^1.4.5-lts.1",
+      "swagger-ui-express": "^4.6.0",
       "uuid": "^9.0.0"
     },
     "devDependencies": {
@@ -280,6 +272,14 @@ Lockfile:
     version "0.0.30"
     resolved "https://registry.yarnpkg.com/@types/strip-json-comments/-/strip-json-comments-0.0.30.tgz#9aa30c04db212a9a0649d6ae6fd50accc40748a1"
     integrity sha512-7NQmHra/JILCd1QqpSzl8+mJRc8ZHz3uDm8YV1Ks9IhK0epEiTw8aIErbvH9PI+6XbqhyIQy3462nEsn7UVzjQ==
+  
+  "@types/swagger-ui-express@^4.1.3":
+    version "4.1.3"
+    resolved "https://registry.yarnpkg.com/@types/swagger-ui-express/-/swagger-ui-express-4.1.3.tgz#7adbbbf5343b45869debef1e9ff39c9ba73e380f"
+    integrity sha512-jqCjGU/tGEaqIplPy3WyQg+Nrp6y80DCFnDEAvVKWkJyv0VivSSDCChkppHRHAablvInZe6pijDFMnavtN0vqA==
+    dependencies:
+      "@types/express" "*"
+      "@types/serve-static" "*"
   
   "@types/uuid@^9.0.0":
     version "9.0.0"
@@ -1761,6 +1761,18 @@ Lockfile:
     version "1.0.0"
     resolved "https://registry.yarnpkg.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
     integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
+  
+  swagger-ui-dist@>=4.11.0:
+    version "4.15.5"
+    resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-4.15.5.tgz#cda226a79db2a9192579cc1f37ec839398a62638"
+    integrity sha512-V3eIa28lwB6gg7/wfNvAbjwJYmDXy1Jo1POjyTzlB6wPcHiGlRxq39TSjYGVjQrUSAzpv+a7nzp7mDxgNy57xA==
+  
+  swagger-ui-express@^4.6.0:
+    version "4.6.0"
+    resolved "https://registry.yarnpkg.com/swagger-ui-express/-/swagger-ui-express-4.6.0.tgz#fc297d80c614c80f5d7def3dab50b56428cfe1c9"
+    integrity sha512-ZxpQFp1JR2RF8Ar++CyJzEDdvufa08ujNUJgMVTMWPi86CuQeVdBtvaeO/ysrz6dJAYXf9kbVNhWD7JWocwqsA==
+    dependencies:
+      swagger-ui-dist ">=4.11.0"
   
   synckit@^0.8.4:
     version "0.8.4"
