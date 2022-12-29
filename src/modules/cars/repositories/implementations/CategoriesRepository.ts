@@ -1,48 +1,39 @@
-import { Category } from "../../model/Category";
+import { Category } from "../../entities/Category";
 import {
   ICategoriesRepository,
   ICreateCategoryDTO,
 } from "../ICategoriesRepository";
-
-// singleton -> é o nome do termo do INSTANCE
+// tem varios metodos de banco de dados como insert, delete etc...
+import { getRepository, Repository } from "typeorm";
 
 class CategoriesRepository implements ICategoriesRepository {
-  // inves de const utilizamos ou public ou private
-  private categories: Category[];
+  private repository: Repository<Category>;
+
   // temos um bug pq esta sendo criado duas a categories logo nao conseguimos retornar a lista comt odos os valores
   // entao criamos o instance que serve para deixar criar apenas uma lista
   private static INSTANCE: CategoriesRepository;
 
-  private constructor() {
-    // sempre usar this quando usamos de fora pra dentro do constructor
-    this.categories = [];
-  }
-  // e este serve para ver se tem valor no instance se não tiver atribuimos um novo nele
-  public static getInstance(): CategoriesRepository {
-    if (!CategoriesRepository.INSTANCE) {
-      CategoriesRepository.INSTANCE = new CategoriesRepository();
-    }
-    return CategoriesRepository.INSTANCE;
+  constructor() {
+    this.repository = getRepository(Category);
   }
   //create vai receber um objeto do tipo ICreateCategoryDTO e o tipo desta função é void ela não tem retorno
-  create({ name, description }: ICreateCategoryDTO): void {
-    //utilizando o constructor do category
-    const category = new Category();
-    // aqui conseguimos passar um objeto pra ele e quais são os atributos que queremos passar pra o valor
-    Object.assign(category, {
-      name,
+  async create({ name, description }: ICreateCategoryDTO): Promise<void> {
+    // a gente precisa criar esta entidade
+    const category = this.repository.create({
       description,
-      created_at: new Date(),
+      name,
     });
 
-    this.categories.push(category);
+    await this.repository.save(category);
   }
-  list(): Category[] {
-    return this.categories;
+  async list(): Promise<Category[]> {
+    const categories = await this.repository.find();
+    return categories;
   }
 
-  findByName(name: string): Category {
-    const category = this.categories.find((category) => category.name === name);
+  async findByName(name: string): Promise<Category> {
+    // Select * from categories where name = "name" limit 1
+    const category = this.repository.findOne({ name });
     return category;
   }
 }
