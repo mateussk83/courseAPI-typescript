@@ -9,10 +9,6 @@ import { getRepository, Repository } from "typeorm";
 class CategoriesRepository implements ICategoriesRepository {
   private repository: Repository<Category>;
 
-  // temos um bug pq esta sendo criado duas a categories logo nao conseguimos retornar a lista comt odos os valores
-  // entao criamos o instance que serve para deixar criar apenas uma lista
-  private static INSTANCE: CategoriesRepository;
-
   constructor() {
     this.repository = getRepository(Category);
   }
@@ -33,7 +29,7 @@ class CategoriesRepository implements ICategoriesRepository {
 
   async findByName(name: string): Promise<Category> {
     // Select * from categories where name = "name" limit 1
-    const category = this.repository.findOne({ name });
+    const category = await this.repository.findOne({ name });
     return category;
   }
 }

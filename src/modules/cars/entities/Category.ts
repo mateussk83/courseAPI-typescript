@@ -1,5 +1,5 @@
 import { v4 as uuidV4 } from "uuid";
-import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm"
+import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm";
 
 // é um decorator do proprio typeorm
 @Entity("categories")
@@ -7,7 +7,7 @@ class Category {
   @PrimaryColumn()
   id?: string;
 
-@Column()
+  @Column()
   name: string;
 
   @Column()

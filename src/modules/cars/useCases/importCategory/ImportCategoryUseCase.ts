@@ -1,15 +1,18 @@
 import fs from "fs";
 import { parse as csvParse } from "csv-parse";
 import { ICategoriesRepository } from "../../repositories/ICategoriesRepository";
+import { inject, injectable } from "tsyringe";
 // stream -> careregar em partes
 
 interface IImportCategory {
   name: string;
   description: string;
 }
-
+@injectable()
 class ImportCategoryUseCase {
-  constructor(private categoriesRepository: ICategoriesRepository) {}
+  constructor(
+    @inject("CategoriesRepository")
+    private categoriesRepository: ICategoriesRepository) {}
 
   loadCategories(file: Express.Multer.File):Promise<IImportCategory[]> {
     // promise diz que quando chegar aqui ele tem que esperar o termino da promisse que pode dar dois resultados
