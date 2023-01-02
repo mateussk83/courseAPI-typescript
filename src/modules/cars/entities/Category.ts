@@ -15,7 +15,7 @@ class Category {
 
   // quando temos um created_at ou um update_at temos um anotation especial
   @CreateDateColumn()
-  created_ad: Date;
+  created_at: Date;
 
   // caso nao tiver é um id ele cria aqui tirando a responsabilidade da rota
   constructor() {

@@ -4,7 +4,7 @@ class Specification {
   id?: string;
   name: string;
   description: string;
-  created_ad: Date;
+  created_at: Date;
 
   // caso nao tiver é um id ele cria aqui tirando a responsabilidade da rota
   constructor() {
