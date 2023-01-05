@@ -1,5 +1,6 @@
 import { ICategoriesRepository } from "../../repositories/ICategoriesRepository";
 import { inject, injectable } from "tsyringe";
+import { AppError } from "../../../../erros/AppError";
 
 interface IRequest {
   name: string;
@@ -21,7 +22,7 @@ class CreateCategoryUseCase {
     );
     if (categoryAlreadyExists) {
       // toda vez que tivermos um erro dentro do service vms colocar um trown new Error pq ele nao reconhece o response
-      throw new Error("Category Already Exists!");
+      throw new AppError("Category Already Exists!");
     }
     this.categoriesRepository.create({ name, description });
   }

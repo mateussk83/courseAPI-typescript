@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { verify } from "jsonwebtoken";
+import { AppError } from "../erros/AppError";
 import { UsersRepository } from "../modules/accounts/repositories/implementations/UsersRepository";
 
 interface IPayload {
@@ -14,9 +15,8 @@ export async function ensureAuthenticated(
   const authHeader = request.headers.authorization;
 
   if (!authHeader) {
-    throw new Error("Token missing");
+    throw new AppError("Token missing", 401);
   }
-  console.log("auth:"+authHeader)
   // como por padrao do Bearer o authenticator vem Bearer 318237128937192874
   // para pegar só o authenticator antes da vircula é a posição 0 e depois é a posição 1
   const [, token] = authHeader.split(" ");
@@ -29,12 +29,11 @@ export async function ensureAuthenticated(
     const user = await usersRepository.findById(user_id)
 
     if(!user) {
-     throw new Error("User does not exists!")
+     throw new AppError("User does not exists!", 401)
     }
 
     next();
   } catch {
-   console.log("token:" + token)
-    throw new Error("Invalid token!");
+    throw new AppError("Invalid token!", 401);
   }
 }

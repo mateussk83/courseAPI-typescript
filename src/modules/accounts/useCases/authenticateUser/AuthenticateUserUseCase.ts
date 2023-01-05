@@ -3,6 +3,7 @@ import { IUsersRepository } from "../../repositories/IUsersRepository";
 import { sign } from "jsonwebtoken"
 
 import { compare } from "bcryptjs"
+import { AppError } from "../../../../erros/AppError";
 
 interface IRequest {
  email: string;
@@ -26,13 +27,13 @@ class AuthenticateUserUseCase {
   const user = await this.usersRepository.findByEmail(email) 
 
   if(!user) {
-   throw new Error("Email or password incorrect!")
+   throw new AppError("Email or password incorrect!")
   }
 
   const passwordMatch = await compare(password, user.password);
 
   if(!passwordMatch) {
-   throw new Error("Email or password incorrect!")
+   throw new AppError("Email or password incorrect!")
   }
 
   // no segundo parametro é uma string pra fortificar a senha neste caso entra em algum site gerador de md5 e gera
