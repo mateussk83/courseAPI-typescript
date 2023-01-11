@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "carsapi-typescript-app Documentation",
-    "description": "This is an API Rent",
+    "description": "This is an API Cars",
     "version": "1.0.0",
     "contact": {
       "email": "mateussk83@gmail.com"
@@ -36,51 +36,48 @@
           }
         },
         "responses": {
-         "201": {
-          "description": "Created"
-         },
-         "500": {
-          "description": "Category already exists"
-         }
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Category already exists"
+          }
         }
       },
       "get": {
-       "tags": ["Category"],
-       "summary": "List all categories",
-       "description": "List all categories",
-       "responses": {
-        "200": {
-         "description":"Success",
-         "content": {
-          "application/json": {
-           "schema": {
-            "type": "array",
-            "items": {
-             "types": "object",
-             "properties": {
-              "name": {
-               "type": "string"
-              },
-              "description": {
-               "type": "string"
+        "tags": ["Category"],
+        "summary": "List all categories",
+        "description": "List all categories",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "types": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
               }
-
-             }
             }
-           }
           }
-         }
         }
-
-       }
-
       }
     },
     "/categories/import": {
       "post": {
-        "tags": ["category"],
-        "summary":"Upload a new category",
-        "description":"Uploada new category",
+        "tags": ["Category"],
+        "summary": "Upload a new category",
+        "description": "Uploada new category",
         "requestBody": {
           "content": {
             "multipart/form-data": {
@@ -88,7 +85,7 @@
                 "type": "string",
                 "properties": {
                   "file": {
-                    "type":"string",
+                    "type": "string",
                     "format": "binary"
                   }
                 }
@@ -107,7 +104,7 @@
       "post": {
         "tags": ["Specifications"],
         "summary": "Create a specification",
-        "description":"Create a new specification",
+        "description": "Create a new specification",
         "requestBody": {
           "content": {
             "application/json": {
@@ -119,27 +116,156 @@
         },
         "responses": {
           "201": {
-            "description":"Created"
+            "description": "Created"
           },
           "500": {
-            "description":"Specifications Already Exists!"
+            "description": "Specifications Already Exists!"
+          }
+        }
+      }
+    },
+    "/users": {
+      "post": {
+        "tags": ["Users"],
+        "summary": "Create a User",
+        "description": "Create a new user",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "driver_license": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "name": "category name sample",
+                  "email": "category email sample",
+                  "driver_license": "category driver_license sample",
+                  "password": "category password sample"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/sessions": {
+      "post": {
+        "tags": ["Users"],
+        "summary": "query the user",
+        "description": "query the user",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "email": "category email sample",
+                  "password": "category password sample"
+                }
+              }
+            },
+            "Bearer": {
+              "securitySchemes": {
+                "bearerAuth": {
+                  "type": "http",
+                  "scheme": "bearer",
+                  "bearerFormat": "JWT",
+                  "description": "JWT Authorization header using the Bearer Scheme."
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Ok"
+            },
+            "400": {
+              "description": "Bad Request"
+            }
+          }
+        }
+      }
+    },
+    "/users/avatar": {
+      "patch": {
+        "tags": ["Users"],
+        "summary": "Insert avatar img ",
+        "description": "insert avatar img in User",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "avatar": {
+                    "type": "string",
+                    "format":"binary"
+                }
+              }
+            },
+            "Bearer": {
+              "securitySchemes": {
+                "bearerAuth": {
+                  "type": "http",
+                  "scheme": "bearer",
+                  "bearerFormat": "JWT",
+                  "description": "JWT Authorization header using the Bearer Scheme."
+                }
+              }
+            }
+          },
+          "responses": {
+            "204": {
+              "description": "No Content"
+            },
+            "401": {
+              "description": "Unauthorized"
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "Specification": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
           }
         }
       }
     }
-
-  },
-  "definitions": {
-    "Specification": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type":"string"
-        },
-        "description": {
-          "type":"string"
-        }
-      }
-    }
+  }
   }
 }
