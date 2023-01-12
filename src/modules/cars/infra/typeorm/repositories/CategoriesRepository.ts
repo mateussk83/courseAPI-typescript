@@ -1,10 +1,10 @@
-import { Category } from "../../entities/Category";
+// tem varios metodos de banco de dados como insert, delete etc...
+import { getRepository, Repository } from "typeorm";
 import {
   ICategoriesRepository,
   ICreateCategoryDTO,
-} from "../ICategoriesRepository";
-// tem varios metodos de banco de dados como insert, delete etc...
-import { getRepository, Repository } from "typeorm";
+} from "../../../repositories/ICategoriesRepository";
+import { Category } from "../entities/Category";
 
 class CategoriesRepository implements ICategoriesRepository {
   private repository: Repository<Category>;
