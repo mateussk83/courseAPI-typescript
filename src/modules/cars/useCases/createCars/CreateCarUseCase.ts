@@ -4,6 +4,7 @@ import { ICreateCarDTO } from "../../dtos/ICreateCarDTO";
 import { Car } from "../../infra/typeorm/entities/Car";
 import { ICarsRepository } from "../../repositories/ICarsRepository";
 
+
 @injectable()
 class CreateCarUseCase {
   constructor(
@@ -20,22 +21,22 @@ class CreateCarUseCase {
     category_id,
   }: ICreateCarDTO): Promise<Car> {
 
-const carAlreadyExists = await this.carsRepository.findByLicencePlate(license_plate)
+  const carAlreadyExists = await this.carsRepository.findByLicencePlate(license_plate) 
 
-if(carAlreadyExists) {
-throw new AppError("Car Already Exists")
-}
+    if (carAlreadyExists) {
+      throw new AppError("Car Already Exists");
+    }
     const car = await this.carsRepository.create({
-    name,
-    description,
-    daily_rate,
-    license_plate,
-    fine_amount,
-    brand,
-    category_id,
-   })
+      name,
+      description,
+      daily_rate,
+      license_plate,
+      fine_amount,
+      brand,
+      category_id,
+    });
 
-   return car
+    return car;
   }
 }
 
