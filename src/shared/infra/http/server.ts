@@ -1,24 +1,28 @@
-import "reflect-metadata";
-import express, { NextFunction, Request, Response } from "express";
+import "reflect-metadata"
+import express, { Request,Response, NextFunction } from "express"
+import "express-async-errors";
 import swaggerUi from "swagger-ui-express";
 
-import "../typeorm"
-import "../../container"
-import "express-async-errors";
+import createConnection from  "../typeorm";
+import "../../container";
 
-import  swaggerFile from "../../../swagger.json"
-import { router } from "./routes";3
+
 import { AppError } from "../../errors/AppError";
 
+import { router } from "./routes";
 
+import swaggerFile from "../../../swagger.json"
 
+createConnection()
 const app = express();
 
 app.use(express.json());
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
-app.use(router);
+
+
+app.use(router)
 
 app.use((err: Error, request:Request, response:Response, next: NextFunction) => {
  if(err instanceof AppError) {

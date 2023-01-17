@@ -4,10 +4,10 @@ import { ICreateCarDTO } from "../../dtos/ICreateCarDTO";
 import { Car } from "../../infra/typeorm/entities/Car";
 import { ICarsRepository } from "../../repositories/ICarsRepository";
 
-// @injectable()
+@injectable()
 class CreateCarUseCase {
   constructor(
-    // @inject("CarsRepository")
+    @inject("CarsRepository")
     private carsRepository: ICarsRepository
   ) {}
   async execute({
@@ -15,7 +15,7 @@ class CreateCarUseCase {
     description,
     daily_rate,
     license_plate,
-    fine_amoute,
+    fine_amount,
     brand,
     category_id,
   }: ICreateCarDTO): Promise<Car> {
@@ -30,7 +30,7 @@ throw new AppError("Car Already Exists")
     description,
     daily_rate,
     license_plate,
-    fine_amoute,
+    fine_amount,
     brand,
     category_id,
    })
