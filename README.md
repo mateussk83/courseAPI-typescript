@@ -22,27 +22,24 @@
 # Cadastro de Especificação no Carro
 
 **Requisito Funcional**
-[ ] Deve ser possível cadastrar uma especificação para um carro
-[ ] Deve ser possivel listar todas as especificações
-[ ] Deve ser possivel listar todos os carros
+[x] Deve ser possível cadastrar uma especificação para um carro
 
 **Regra de Negócio**
-[ ] Não deve ser possivel cadastrar uma especificação para um carro não cadastrado
-[ ] Não deve ser possivel cadastrar uma especificação já existente para o mesmo carro.
-[ ] O usuario responsavel pelo cadastro deve ser um usuario administrador
+[x] Não deve ser possivel cadastrar uma especificação para um carro não cadastrado.
+[x] Não deve ser possivel cadastrar uma especificação já existente para o mesmo carro.
+[x] O usuario responsavel pelo cadastro deve ser um usuario administrador
 
 # Cadastro de imagens do carro
 
 **Requisito Funcional**
-[ ] Deve ser possível cadastrar a imagem do carro
-[ ] Deve ser possível listar todos os carros
+[x] Deve ser possível cadastrar a imagem do carro
 
 **Requisito não Funcional**
-[ ] Utilizar o multer para upload dos arquivos
+[x] Utilizar o multer para upload dos arquivos
 
 **Regra de Negócio**
-[ ] O usuário deve poder cadastrar mais de uma imagem para o mesmo carro
-[ ] O usuário responsavel pelo cadastro deve ser um usuário administrador
+[x] O usuário deve poder cadastrar mais de uma imagem para o mesmo carro
+[x] O usuário responsavel pelo cadastro deve ser um usuário administrador
 
 ## Aluguel de Carro
 
