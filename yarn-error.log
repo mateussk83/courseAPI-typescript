@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: EPERM: operation not permitted, unlink 'C:\Users\mateu\OneDrive\Área de Trabalho\Projetos\Web\Back-End\Exercises-Node\carsAPI-typescript\node_modules\.bin\ts-node-dev'
+  Error: EPERM: operation not permitted, unlink 'C:\Users\mateu\OneDrive\Área de Trabalho\Projetos\Web\Back-End\Exercises-Node\rentx\node_modules\.bin\ts-node-dev'
 
 npm manifest: 
   {
