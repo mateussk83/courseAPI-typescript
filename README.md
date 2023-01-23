@@ -45,7 +45,7 @@
 ## Aluguel de Carro
 
 **Requisito Funcional**</br>
-[ ] Deve ser possível cadastrar um aluguel</br>
+[x] Deve ser possível cadastrar um aluguel</br>
 
 **Regra de Negócio**</br>
 [ ] O aluguel deve ter duração mínima de 24 horas.</br>
