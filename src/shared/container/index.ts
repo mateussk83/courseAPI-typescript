@@ -1,4 +1,6 @@
 import { container } from "tsyringe";
+import "./providers"
+
 import { UsersRepository } from "../../modules/accounts/infra/typeorm/repositories/UsersRepository";
 import { IUsersRepository } from "../../modules/accounts/repositories/IUsersRepository";
 import { CarsImagesRepository } from "../../modules/cars/infra/typeorm/repositories/CarsImagesRepository";
@@ -7,9 +9,10 @@ import { CategoriesRepository } from "../../modules/cars/infra/typeorm/repositor
 import { SpecificationsRepository } from "../../modules/cars/infra/typeorm/repositories/SpecificationsRepository";
 import { ICarsImagesRepository } from "../../modules/cars/repositories/ICarsImagesRepository";
 import { ICarsRepository } from "../../modules/cars/repositories/ICarsRepository";
-
 import { ICategoriesRepository } from "../../modules/cars/repositories/ICategoriesRepository";
 import { ISpecificationsRepository } from "../../modules/cars/repositories/ISpecificationRepository";
+import { RentalsRepository } from "../../modules/rentals/infra/typeorm/repositories/RentalsRepository";
+import { IRentalsRepository } from "../../modules/rentals/repositories/IRentalsRepository";
 // singleton é o nome dado para um INSTANCE que geralmente serve pra indicar se ja existe determinada classe
 
 container.registerSingleton<ICategoriesRepository>(
@@ -18,12 +21,12 @@ container.registerSingleton<ICategoriesRepository>(
 );
 
 container.registerSingleton<ISpecificationsRepository>(
-  "SpecificationsRepository", // nomeclatura do singleton
-  SpecificationsRepository // classe
+  "SpecificationsRepository", 
+  SpecificationsRepository
 );
 container.registerSingleton<IUsersRepository>(
-  "UsersRepository", // nomeclatura do singleton
-  UsersRepository // classe
+  "UsersRepository", 
+  UsersRepository
 );
 
 container.registerSingleton<ICarsRepository>(
@@ -34,4 +37,9 @@ container.registerSingleton<ICarsRepository>(
 container.registerSingleton<ICarsImagesRepository>(
   "CarsImagesRepository",
   CarsImagesRepository
+);
+
+container.registerSingleton<IRentalsRepository>(
+  "RentalsRepository",
+  RentalsRepository
 )
