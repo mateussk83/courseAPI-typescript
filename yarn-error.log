@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\mateu\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add @types/bcrypt -D
+  C:\Program Files\nodejs\node.exe C:\Users\mateu\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add dayjs
 
 PATH: 
   C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\Users\mateu\AppData\Local\Programs\Python\Python38\Scripts\;C:\Users\mateu\AppData\Local\Programs\Python\Python38\;C:\Users\mateu\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\mateu\AppData\Local\Programs\Python\Python39\;C:\Users\mateu\AppData\Local\Microsoft\WindowsApps;C:\Users\mateu\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\mateu\AppData\Roaming\npm;
@@ -44,6 +44,7 @@ npm manifest:
       "uuid": "^9.0.0"
     },
     "devDependencies": {
+      "@types/bcrypt": "^5.0.0",
       "@types/bcryptjs": "^2.4.2",
       "@types/express": "^4.17.14",
       "@types/jest": "^29.2.5",
@@ -775,6 +776,13 @@ Lockfile:
     integrity sha512-1kbcJ40lLB7MHsj39U4Sh1uTd2E7rLEa79kmDpI6cy+XiXsteB3POdQomoq4FxszMrO3ZYchkhYJw7A2862b3w==
     dependencies:
       "@babel/types" "^7.3.0"
+  
+  "@types/bcrypt@^5.0.0":
+    version "5.0.0"
+    resolved "https://registry.yarnpkg.com/@types/bcrypt/-/bcrypt-5.0.0.tgz#a835afa2882d165aff5690893db314eaa98b9f20"
+    integrity sha512-agtcFKaruL8TmcvqbndlqHPSJgsolhf/qPWchFlgnW1gECTN/nKbFcoFnvKAQRFfKbh+BO6A3SWdJu9t+xF3Lw==
+    dependencies:
+      "@types/node" "*"
   
   "@types/bcryptjs@^2.4.2":
     version "2.4.2"
