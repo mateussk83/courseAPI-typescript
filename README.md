@@ -44,7 +44,6 @@
 
 ## Aluguel de Carro
 
-
 **Requisito Funcional**</br>
 [x] Deve ser possível cadastrar um aluguel</br>
 
@@ -52,4 +51,18 @@
 [x] O aluguel deve ter duração mínima de 24 horas.</br>
 [x] Não deve ser possivel cadastrar um novo aluguel caso já exista um aberto para o mesmo usuario</br>
 [x] Não deve ser possivel cadastrar um novo aluguel caso já exista um aberto para o mesmo carro</br>
-[ ] O usuário deve estar logado na aplicação
+[x] O usuário deve estar logado na aplicação</br>
+[ ] Ao realizar um aluguel, o status do carro deverá ser alterado para indisponivel
+
+## Devoluçãõ do carro
+
+**Requisito Funcional**</br>
+[x] Deve ser possível realizar a devolução do carro</br>
+
+**Regra de Negócio**</br>
+[x] Se o carro for devolvido com menor de 24 horas, deverá ser cobrado diária completa </br>
+[x] Ao realizar a devolução, o carro deverá ser liberado para outro aluguel</br>
+[x] Ao realizar a devolução o usuário deverá ser liberado para outro aluguel</br>
+[x] Ao realizar a devolução, deverá ser calculado o total do aluguel</br>
+[ ] Caso o forário de devolução seja superio ao horário previsto de entrega, deverá ser cobrado multa propocional aos dias de atraso</br>
+[ ] Caso haja multa, deverá ser somado ao total do aluguel.
