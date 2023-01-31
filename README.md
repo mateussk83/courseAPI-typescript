@@ -54,7 +54,7 @@
 [x] O usuário deve estar logado na aplicação</br>
 [ ] Ao realizar um aluguel, o status do carro deverá ser alterado para indisponivel
 
-## Devoluçãõ do carro
+## Devolução do carro
 
 **Requisito Funcional**</br>
 [x] Deve ser possível realizar a devolução do carro</br>
@@ -64,5 +64,13 @@
 [x] Ao realizar a devolução, o carro deverá ser liberado para outro aluguel</br>
 [x] Ao realizar a devolução o usuário deverá ser liberado para outro aluguel</br>
 [x] Ao realizar a devolução, deverá ser calculado o total do aluguel</br>
-[ ] Caso o forário de devolução seja superio ao horário previsto de entrega, deverá ser cobrado multa propocional aos dias de atraso</br>
-[ ] Caso haja multa, deverá ser somado ao total do aluguel.
+[x] Caso o forário de devolução seja superio ao horário previsto de entrega, deverá ser cobrado multa propocional aos dias de atraso</br>
+[x] Caso haja multa, deverá ser somado ao total do aluguel.
+
+## Listagem de Algueis para usuário
+
+**Requisito Funcional**</br>
+[ ] Deve ser possível realizar a busca de todos os alugueis para o usuário</br>
+
+**Regra de Negócio**</br>
+[ ] O usuário deve estar logado na aplicação</br>
