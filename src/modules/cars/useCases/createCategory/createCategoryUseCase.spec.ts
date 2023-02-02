@@ -31,23 +31,19 @@ describe("Create Category", () => {
  })
 
  it("should bot be able to create a new category with same name exists", async () => {
-  expect(async () => {
-   const category = {
-    name: "Category Test",
-    description: "Category description Test",
-   }
-   await createCategoryUseCase.execute({
+  const category = {
+   name: "Category Test",
+   description: "Category description Test",
+  }
+  await createCategoryUseCase.execute({
+   name: category.name,
+   description: category.description
+  })
+  
+  await expect(createCategoryUseCase.execute({
     name: category.name,
     description: category.description
-   })
- 
-   await createCategoryUseCase.execute({
-    name: category.name,
-    description: category.description
-    
-   })
-   // aqui ele ta falando se der um erro dentro do app error vai dar sucesso no teste
-  }).rejects.toBeInstanceOf(AppError)
+   })).rejects.toEqual(new AppError("Category Already Exists!"))
   
  })
 
