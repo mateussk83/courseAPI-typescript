@@ -13,6 +13,8 @@ import { ICategoriesRepository } from "../../modules/cars/repositories/ICategori
 import { ISpecificationsRepository } from "../../modules/cars/repositories/ISpecificationRepository";
 import { RentalsRepository } from "../../modules/rentals/infra/typeorm/repositories/RentalsRepository";
 import { IRentalsRepository } from "../../modules/rentals/repositories/IRentalsRepository";
+import { IUsersTokensRepository } from "../../modules/accounts/repositories/IUsersTokensRepository";
+import { UsersTokensRepository } from "../../modules/accounts/infra/typeorm/repositories/UsersTokensRepository";
 // singleton é o nome dado para um INSTANCE que geralmente serve pra indicar se ja existe determinada classe
 
 container.registerSingleton<ICategoriesRepository>(
@@ -42,4 +44,9 @@ container.registerSingleton<ICarsImagesRepository>(
 container.registerSingleton<IRentalsRepository>(
   "RentalsRepository",
   RentalsRepository
+)
+
+container.registerSingleton<IUsersTokensRepository>(
+  "UsersTokensRepository",
+  UsersTokensRepository
 )

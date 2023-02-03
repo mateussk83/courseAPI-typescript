@@ -36,7 +36,8 @@ export class CreateUsersToken1675330993248 implements MigrationInterface {
                         referencedTableName: "users",
                         referencedColumnNames: ["id"],
                         columnNames: ["user_id"],
-                        onDelete: "CASCADE"
+                        onDelete: "CASCADE",
+                        onUpdate: "CASCADE"
                     }
                 ]
             })
@@ -46,6 +47,7 @@ export class CreateUsersToken1675330993248 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
+        await queryRunner.dropTable("users_token")
     }
 
 }

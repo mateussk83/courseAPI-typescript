@@ -2,6 +2,8 @@ import { NextFunction, Request, Response } from "express";
 import { verify } from "jsonwebtoken";
 import { AppError } from "../../../errors/AppError";
 import { UsersRepository } from "../../../../modules/accounts/infra/typeorm/repositories/UsersRepository";
+import { UsersTokensRepository } from "../../../../modules/accounts/infra/typeorm/repositories/UsersTokensRepository";
+import auth from "../../../../config/auth";
 
 interface IPayload {
  sub: string;
@@ -22,7 +24,7 @@ export async function ensureAuthenticated(
   const [, token] = authHeader.split(" ");
   try {
     // se der certo o verification ele mantem no try se não vai para o catch
-    const { sub: user_id } = verify(token, "39536097be8c345051a36da0e8816119") as IPayload;
+    const { sub: user_id } = verify(token, auth.secret_token) as IPayload;
 
     const usersRepository = new UsersRepository();
 
