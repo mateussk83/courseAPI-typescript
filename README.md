@@ -67,10 +67,21 @@
 [x] Caso o forário de devolução seja superio ao horário previsto de entrega, deverá ser cobrado multa propocional aos dias de atraso</br>
 [x] Caso haja multa, deverá ser somado ao total do aluguel.
 
-## Listagem de Algueis para usuário
+## Listagem de Alugueis para usuário
 
 **Requisito Funcional**</br>
-[ ] Deve ser possível realizar a busca de todos os alugueis para o usuário</br>
+[x] Deve ser possível realizar a busca de todos os alugueis para o usuário</br>
 
 **Regra de Negócio**</br>
-[ ] O usuário deve estar logado na aplicação</br>
+[x] O usuário deve estar logado na aplicação</br>
+
+# Recuperar Senha
+
+**Requisito Funcional**</br>
+[x] Deve ser possível o usuário recuperar a senha informando o e-mail</br>
+[ ] O usuário deve recuperar um e-mail com o passo a passo para a recuperação da senha</br>
+[ ] O usuário deve conseguir inserir uma nova senha</br>
+
+**Regra de Negócio**</br>
+[ ] O usuário precisa informar uma nova senha</br>
+[ ] O link enviado para a recuperação deve expirar em 3 horas</br>
