@@ -52,7 +52,7 @@
 [x] Não deve ser possivel cadastrar um novo aluguel caso já exista um aberto para o mesmo usuario</br>
 [x] Não deve ser possivel cadastrar um novo aluguel caso já exista um aberto para o mesmo carro</br>
 [x] O usuário deve estar logado na aplicação</br>
-[ ] Ao realizar um aluguel, o status do carro deverá ser alterado para indisponivel
+[x] Ao realizar um aluguel, o status do carro deverá ser alterado para indisponivel
 
 ## Devolução do carro
 
@@ -79,9 +79,9 @@
 
 **Requisito Funcional**</br>
 [x] Deve ser possível o usuário recuperar a senha informando o e-mail</br>
-[ ] O usuário deve recuperar um e-mail com o passo a passo para a recuperação da senha</br>
-[ ] O usuário deve conseguir inserir uma nova senha</br>
+[x] O usuário deve recuperar um e-mail com o passo a passo para a recuperação da senha</br>
+[x] O usuário deve conseguir inserir uma nova senha</br>
 
 **Regra de Negócio**</br>
-[ ] O usuário precisa informar uma nova senha</br>
-[ ] O link enviado para a recuperação deve expirar em 3 horas</br>
+[x] O usuário precisa informar uma nova senha</br>
+[x] O link enviado para a recuperação deve expirar em 3 horas</br>
