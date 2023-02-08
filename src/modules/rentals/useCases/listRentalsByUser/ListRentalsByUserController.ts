@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe";
+import { ListRentalsByUserUseCase } from "./ListRentalsByUserUseCase";
 
-import { ListRentalsByUserUseCase } from "./listRentalsByUserUseCase";
 
 
 
