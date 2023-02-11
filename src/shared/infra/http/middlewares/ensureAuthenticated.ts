@@ -6,7 +6,7 @@ import { UsersTokensRepository } from "../../../../modules/accounts/infra/typeor
 import auth from "../../../../config/auth";
 
 interface IPayload {
- sub: string;
+  sub: string;
 }
 
 export async function ensureAuthenticated(
@@ -19,23 +19,22 @@ export async function ensureAuthenticated(
   if (!authHeader) {
     throw new AppError("Token missing", 401);
   }
-  // como por padrao do Bearer o authenticator vem Bearer 318237128937192874
-  // para pegar só o authenticator antes da vircula é a posição 0 e depois é a posição 1
+
   const [, token] = authHeader.split(" ");
   try {
-    // se der certo o verification ele mantem no try se não vai para o catch
+    
     const { sub: user_id } = verify(token, auth.secret_token) as IPayload;
 
     const usersRepository = new UsersRepository();
 
-    const user = await usersRepository.findById(user_id)
+    const user = await usersRepository.findById(user_id);
 
-    if(!user) {
-     throw new AppError("User does not exists!", 401)
+    if (!user) {
+      throw new AppError("User does not exists!", 401);
     }
     request.user = {
-      id: user_id
-    }
+      id: user_id,
+    };
     next();
   } catch {
     throw new AppError("Invalid token!", 401);
