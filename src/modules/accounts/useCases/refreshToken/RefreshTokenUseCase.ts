@@ -49,13 +49,13 @@ class RefreshTokenUseCase {
   refresh_token,
   user_id
  })
-
  
  const newToken = sign({}, auth.secret_token, {
   subject: user_id,
   expiresIn: auth.expires_in_token,
 });
 
+ 
  return {
   refresh_token,
   token: newToken
